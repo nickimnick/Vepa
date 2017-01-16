@@ -1,0 +1,269 @@
+html, body{
+	font-family: $fontDefault;
+	color: $colorDark;
+	font-size: 32px;
+	overflow-x: hidden;
+	&.usnone{
+		@include userSelectNone;
+	}
+}
+*{
+	box-sizing: border-box;
+	margin: 0; padding: 0;
+}
+a{
+	text-decoration: none;
+}
+
+header, footer{
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	height: 100px;
+	max-height: 100px;
+	display: table;	
+	padding: 0 60px;
+}
+
+#loader{
+	position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	opacity: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+	transition: opacity .3s ease-out;
+	&.show{top: 0; opacity: 1;}
+}
+
+div#container{
+	min-height: calc(100vh - 300px);
+	> div{
+		text-align: center;
+		> h1, > h3{
+			text-align: center;
+			color: $colorDark;	
+			max-width: 600px;
+			margin: 0 auto;	
+		}
+		> h1{
+			font-size: 50px;
+			font-weight: 500;
+			margin-top: 60px;
+		}
+		> h3{
+			font-size: 20px;
+			font-weight: 300;
+			margin-top: 30px;
+			margin-bottom: 60px;
+		}
+		> .formError{
+			color: $colorRed;
+			font-size: 18px;
+			max-width: 480px;
+			margin: 10px auto;
+			text-align: left;
+		}
+		> .button{
+			margin-top: 40px;
+		}
+
+		&#body{
+			.showcase .box{
+				width: auto;
+				max-width: calc(25% - 10px);
+			}
+		}
+		.showcase{
+			margin: 0 auto;
+			max-width: 80%;
+			font-size: 0;
+			.box{
+				margin: 5px;
+				margin-bottom: 55px;
+				width: calc(20% - 10px);
+				max-width: calc(20% - 10px);
+				display: inline-block;
+				position: relative;
+				&, img{
+					@include transition(all .3s ease-out);
+				}
+				&.selected{
+					background-color: $colorLightHint;
+					img{
+						opacity: 1;
+					}
+				}
+				img{
+					width: 100%;
+					height: auto;
+					border: 10px solid transparent;
+					opacity: .8;
+				}
+				.caption{
+					width: 100%;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					font-size: 13px;
+					font-weight: 500;
+					text-align: center;
+					color: $colorDark;
+				}
+			}
+		}
+
+		#uploadpicture{
+			cursor: pointer;
+			input{
+				cursor:pointer;
+				display: block;
+			}
+			label.error{
+				top: 100% !important;
+				margin-top: 10px;
+				right: 0 !important;
+			}
+			
+		}
+		#uploadpictureinput{
+			@include hide();
+		}
+		#profilePicture{
+			display: none;
+			max-width: 240px;
+			&.show {
+				display: block;
+			}
+			img{
+				max-width: 100%;
+			}
+		}
+
+		.buttons{
+			font-size: 0;
+			max-width: 480px;
+			margin: 0 auto;
+			margin-bottom: 60px;
+			button{
+				width: 25%;
+				border: 1px solid $colorDarkDivider;
+				border-right: none;
+				background: transparent;
+				margin: 0;
+				padding: 0;
+				outline: none;
+				cursor: pointer;
+				&.active{
+					background: $colorLightDivider;
+				}
+				&:first-child{
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
+				}
+				&:last-child{
+					border-top-right-radius: 5px;
+					border-bottom-right-radius: 5px;
+					border-right: 1px solid $colorDarkDivider;
+				}
+				span{
+					line-height: 50px;
+					font-size: 13px;
+  					font-weight: 500;
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+
+		&#size{
+			.inputContainer{
+				margin-top: 50px;
+				.icon{
+					i{
+						@include iconSize(13px);
+						margin-top: 5px;
+					}
+				}
+				select{
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					-webkit-appearance: 0;
+					-moz-appearance: 0;
+					font-size: 14px;
+					color: $colorDark;
+				}
+			}
+		}
+
+		&#budget{
+			.inputContainer{
+				background: transparent;
+				border: none;
+				margin-top: 50px;
+				input{
+					@include hide();
+				}
+				.sliderLine{
+					height: 3px;
+					margin: 15px 0;
+					background: $colorDarkHint;
+				}
+				.slideButton{
+					position: absolute;
+					top: 5px;
+					left: 0;
+					width: 32px;
+					height: 24px;
+					background: $colorLightDivider;
+					border: 1px solid $colorDarkHint;
+					border-radius: 4px;
+					cursor: pointer;
+					transition: none;
+				}
+			}
+		}
+
+	}
+}
+
+.clearfix:before, .clearfix:after {display:table; content:" "; font-size:0; height:0;}
+.clearfix:after {clear:both;}
+
+
+@media screen and (max-width: $breakpointSM){
+	div#container{
+		> div{
+			> h1, > h3{
+				max-width: 90%;
+			}
+			> h1{
+				font-size: 36px;
+			}
+
+			.showcase{
+				.box{
+					width: calc(50% - 10px);
+					max-width: calc(50% - 10px);
+				}
+			}
+			&#body{
+				.showcase .box{
+					width: calc(25% - 10px);
+					max-width: calc(25% - 10px);
+				}
+			}
+
+			.buttons{
+				max-width: 380px;
+				width: 90%;
+			}
+		}
+	}
+}

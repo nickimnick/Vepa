@@ -1,0 +1,335 @@
+#landingPage{
+	header{
+		position: absolute;
+		top: 2.5rem;
+		left: 0;
+		width: 100%;
+		padding: 0 3rem;
+		z-index: 5;
+		.logo, .social{
+			a, label{
+				text-decoration: none;
+				color: $colorLight;
+			}
+		}
+		.logo{
+			float:left;
+			i {@include iconSize(2.5rem); }
+		}
+		.social{
+			float:right;
+			width: auto;
+			position: relative;
+			
+			a{
+				display: inline-block;;
+				padding: 0.125rem;
+				margin: 0 0.25rem;
+			}
+			> label{
+				display: inline-block;;
+				border-left: 1px solid $colorLight;
+				margin: 0;
+				padding: 0.125rem 0.5rem;
+				cursor: pointer;
+				@include transition(all .3s ease-out);
+			}
+			> input{
+				@include hide;
+				&:checked ~ label{
+					color: $colorSite;
+					background: $colorLight;
+				}
+				&:checked ~ .loginContainer{
+					display: block;
+				}
+			}
+			.loginContainer{
+				position: absolute;
+				top: calc(100% - 2px);
+				right: 0;
+				background: $colorLight;
+				width: 400px;
+				height: 270px;
+				display: none;
+				font-size: 0;
+				padding-top: 20px;
+				
+
+				&.errored{
+					@include animation(tilt .5s linear);
+				}
+
+				.inputContainer{
+					width: 90%;
+					margin: 10px auto;
+					label{
+						color: $colorDarkS;
+					}
+				}
+
+				.buttonGroup{
+					text-align: center;
+					position: absolute;
+					width: 100%;
+					bottom: 30px;
+					button:first-child{
+						border-bottom-right-radius: 0;
+						border-top-right-radius: 0;
+					}
+					button:last-child{
+						border-bottom-left-radius: 0;
+						border-top-left-radius: 0;
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+	section{
+		position: relative;
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
+		overflow: hidden;
+		&.fullHeight{
+			width: 100%;
+			height: 100vh;
+			max-height: 100vh;
+			margin: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: table;
+			.text{
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0 3rem;
+				h3, p{
+					color: $colorLight;
+				}
+				h3{
+					font-size: 2rem;
+					font-weight: 500;
+					white-space: nowrap;
+				}
+				p{
+					font-size: 1rem;
+  					font-weight: 300;
+					margin: .5rem 0 1rem;
+				}
+			}
+			&.centerText .text{
+				left: 0;
+				max-width: 100%;
+				width: 100%;
+				text-align: center;
+			}
+			.learnMore{
+				position: absolute;
+				bottom: 1.5rem;
+				left: 50%;
+				width: 100px;
+				margin-left: -50px;
+				text-align: center;
+				color: $colorLight;
+				cursor: pointer;
+				span{
+					font-size: .5rem;
+				}
+				i{
+					width: 100%;
+					margin-top: 8px;
+				}
+			}
+		}
+
+		&.boxs{
+			padding: 4rem 0;
+			.box{
+				width: 25%;
+				padding: 0 1.5rem;
+				display: block;
+				float: left;
+				i{
+					@include iconSize(2.5rem);
+					width: 100%;
+					margin-bottom: 1.5rem;
+				}
+				h4, p{
+					text-align: center;
+					color: $colorDark;
+				}
+				h4{
+					font-size: 0.75rem;
+  					font-weight: 500;
+					margin-bottom: .5rem;
+				}
+				p{
+					font-size: .5rem;
+  					font-weight: 300;
+				}
+			}
+		}
+
+		&.captioned{
+			h2, p{
+				text-align: center;
+			}
+			> h2{
+				font-size: 1.5rem;
+				font-weight: 400;
+				margin-bottom: .5rem;
+			}
+			> p{
+				font-size: .5rem;
+  				font-weight: 300;
+				margin-bottom: 1rem;
+			}
+		}
+
+		&.stylists{
+			margin-bottom: 2rem;
+			.box{
+				width: 33%;
+				float: left;
+				padding: 0 1.5rem;
+				&:nth-child(2n){
+					padding-top: 3rem;
+				}
+				img{
+					width: 100%;
+				}
+				div.name{
+					margin-top: -80px;
+					margin-bottom: 2rem;
+					padding-left: 1rem;
+					font-size: 0.75rem;
+					color: $colorLight;
+				}
+				p{
+					font-size: .5rem;
+					padding: 0 1rem;
+					text-align: left;
+				}
+				a{
+					display: inline-block;
+					font-size: .4rem;
+					font-weight: 500;
+					letter-spacing: 0.9px;
+					color: $colorDark;
+					margin-left: 1rem;
+					text-decoration: none;
+					border-bottom: 1px solid $colorDarkDivider;
+				}
+			}			
+		}
+
+		&.community{
+			margin: 0;
+			margin-top: 4rem;
+			.box{
+				width: 25%;
+				padding: 0 4px;
+				display: inline-block;
+				font-size: 0;
+				float: left;
+				
+				img{
+					width: 100%;
+				}
+			}
+		}
+
+		&.social{
+			text-align: center;
+			margin-top: 100px;
+			a{
+				padding: 4px;
+				margin: 0 10px;
+				color: $colorDark;
+				display: inline-block;
+				text-decoration: none;
+			}
+		}
+		&.copright{
+			text-align: center;
+			font-size: .5rem;
+			font-weight: 300;
+			margin: 2rem 0 3rem 0;
+		}
+	}
+
+	.privacy{
+		display: none;
+	}
+}
+
+@include keyframes(tilt){
+	10%, 90% {
+    	transform: translate3d(0px, 0, 0);
+  	}
+  
+	20%, 80% {
+		transform: translate3d(5px, 0, 0);
+	}
+
+	30%, 50%, 70% {
+		transform: translate3d(-10px, 0, 0);
+	}
+
+	40%, 60% {
+		transform: translate3d(10px, 0, 0);
+	}
+}
+
+
+@media screen and (max-width: $breakpointSM){
+	#landingPage {
+		header{
+			top: 1.5rem;
+			padding: 0 1rem;
+		}
+		.fullHeight{
+			.text{
+				padding: 0 1rem !important;
+				h3{
+					font-size: 1.5rem !important;
+					white-space: normal !important;
+				}
+				p{
+					font-size: .8rem !important;
+				}
+			}
+			.learnMore{
+				bottom: 1rem !important;
+			}
+		}
+		section .box{
+			width: 100% !important;
+			margin-bottom: 50px;
+			padding: 0 !important;
+			
+			&:last-of-type{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $breakpointXS){
+	#landingPage {
+		header{
+			top: 1rem;
+		}
+		.fullHeight{
+			.text{
+				h3{
+					font-size: 1rem !important;
+				}
+				p{
+					font-size: .5rem !important;
+				}
+			}
+		}
+	}
+}

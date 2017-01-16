@@ -1,0 +1,169 @@
+.inputContainer{
+	background: $colorLightDivider;
+	border: 1px solid $colorLightHint;
+	width: 100%;
+	max-width: 480px;
+	border-radius: 5px;
+	position: relative;
+	margin: 10px auto;
+	overflow: none;
+	font-size: 0;
+	&.error{
+		border: 1px solid color(Red, 300);
+		label.error{
+			opacity: 1; 
+		}
+	}
+	> * {
+		@include transition(all .2s ease-out);
+		transition-delay: 0.1s;
+	}
+	input{
+		height: 21px;
+		margin: 20px 0 9px 0;
+		padding-left: 15px;
+		font-size: 16px;
+		width: 100%;
+		outline: none !important;
+		background: transparent !important;
+		border: none !important;
+		// For browser autofill background color
+		box-shadow: inset 99px 99px 99px 99px $colorLightDivider;
+		display: block;
+
+		&:focus, &:valid{
+			margin: 30px 0 9px 0;
+			& + label{
+				top: 5px;
+				color: $colorDarkS;
+			}
+		}
+	}
+
+	&.noFloat{
+		label{
+			top: -30px !important;
+			color: $colorDark;
+			font-weight: 500;
+		}
+		input{
+			margin: 10px 0 10px 0 !important;
+			margin-top: 10px !important;
+		}
+	}
+
+	label{
+		position: absolute;
+		line-height: 20px;
+		top: 15px;
+		left: 15px;
+		font-size: 13px;
+		@include userSelectNone;
+
+		&.secondary{
+			left: auto;
+			right: 10px;
+			cursor: pointer;
+			*{float:left;}
+		}
+		&.error{
+			@include transition(all .3s ease-out);
+			opacity: 1 !important;
+			left:initial !important;
+			right: 10px !important;
+			top: 5px !important; 
+			color: color(Red) !important;
+		}
+		i{
+			display: inline-block;
+			@include iconSize(20px);
+			font-size: 15px;
+		}
+	}
+
+	&.btn{
+		margin-top: 50px;
+		& > label{
+			top: -30px;
+		}
+	}
+
+	div.icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		padding: 10px 20px;
+	}
+
+	button.upload{
+		position: absolute;
+		left: 100%;
+		margin-left: 20px;
+		top: 0;
+		border: 1px solid $colorLightHint;
+		padding: 0 15px;
+		font-size: 16px;
+		line-height: 40px;
+		white-space: nowrap;
+		outline: none;
+		cursor: pointer;
+	}
+	
+	.radioContainer{
+		width: 33.3333%;
+		height: 50px;
+		display: inline-block;	
+		position: relative;
+		input{
+			@include hide();
+		}
+		input:checked ~ label{
+			background: $colorDarkHint;
+		}
+
+		input:disabled ~ label{
+			color: $colorDarkHint;
+		}
+		label{
+			width: 100%;
+			height: 100%;
+			top: 0 !important; left: 0 !important;
+			line-height: 50px;
+			text-align: center;
+			cursor: pointer;
+			color: $colorDark;
+		}
+		label:hover ~ .tooltip{
+			opacity: 1;
+		}
+		input:not(:disabled) ~ .tooltip{
+			opacity: 0 !important;
+		}
+		.tooltip{
+			position: absolute;
+			color: $colorDarkS;
+			top: 120%;
+			right: 0;
+			font-size: 12px;
+			white-space: nowrap;
+			opacity: 0;
+			cursor: context-menu;
+			@include transition(all .2s ease-out);
+			@include userSelectNone();
+		}
+	}	
+}
+
+@media screen and (max-width: $breakpointSM){
+	.inputContainer{
+		max-width: 380px;
+		width: 90%;
+
+		button.upload{
+			left: auto;
+			right: 0;
+			top: 120%;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+#container.success{
+	width: 100%;
+	display: table;
+	> div{
+		display: table-cell;
+		width: 50%;
+		vertical-align: top;
+    	padding: 50px;
+		&:first-child img{display: none;}
+		&, *{text-align: left;}
+		
+		h2, h3{
+			font-size: 50px;
+		}
+		h2{
+			font-weight: 500;
+		}
+		h3{
+			margin-top: 0;
+			margin-left: 0;
+			line-height: 1;
+		}
+		p{
+			font-size: 20px;
+			font-weight: 300;
+			padding-right: 20%;
+		}
+		img{
+			width: 100%;
+			height: auto;
+		}
+		button{
+			padding: 0;
+			span{
+				font-size: 14px;
+			}
+		}
+	}
+	& + footer{
+		margin-top: 0;
+	}
+}
+
+@media screen and (max-width: $breakpointSM){
+	#container.success{
+		> div{
+			&:first-child{
+				width: 100%;
+				img{
+					display: block;
+					width: calc(100% + 100px);
+					margin: 0 -50px 30px;
+				}
+			}
+			&:last-child{
+				display: none;
+			}
+			h2, h3{
+				font-size: 36px;
+			}
+			p{
+				padding-right: 0;
+			}
+		}
+	}
+}

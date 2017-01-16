@@ -1,0 +1,34 @@
+footer{
+	border-top: 1px solid $colorDarkDivider;
+	margin-top: 60px;
+	.social{
+		display: none;
+	}
+	div, section{
+		display: table-cell;
+		vertical-align: middle;
+		&, a{
+			font-size: 16px;
+			font-weight: 300;
+			color: $colorDarkS;
+		}
+	}
+	section{
+		text-align: left;
+	}
+	div{
+		text-align: right;
+	}
+}
+
+
+@media screen and (max-width: $breakpointSM){
+	footer{
+		.copright{
+			display: none;
+		}
+		.privacy{
+			text-align: center;
+		}
+	}
+}

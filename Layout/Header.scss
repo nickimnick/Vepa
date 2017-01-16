@@ -1,0 +1,70 @@
+header.quiz{
+	border-bottom: 1px solid $colorDarkDivider;
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.logo{
+		position: absolute;
+		top: 15px; left: 50px;
+		i{
+			color: $colorDark;
+			@include iconSize(70px);
+		}
+	}
+	.steps{
+		font-size: 14px;
+		text-align: center;
+		.step{
+			display: inline-block;
+			> * {
+				display: inline-block;
+				color: $colorDarkS;
+			}
+			&.active{
+				span{
+					color: $colorSite;
+				}
+			}
+			span{
+				font-size: 14px;
+				font-weight: 500;
+				padding: 0 10px; 
+			}
+			i{
+				@include iconSize(12px);
+			}
+		}
+	}
+	.conLater{
+		position: absolute;
+		top: 20px; right: 50px;
+	}
+}
+
+@media screen and (max-width: $breakpointSM){
+	header.quiz{
+		padding: 0;
+		.logo, .conLater{
+			display: none;
+		}
+	}
+	.step{
+		&:before{
+			content: '';
+			position: relative;
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: $colorDarkHint;
+			border-radius: 100%;
+			margin: 0 10px;
+		}
+		&.active:before{
+			background: $colorSite;
+		}
+		span, i{
+			display: none !important;
+		}
+	}
+}

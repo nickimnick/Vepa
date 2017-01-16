@@ -1,0 +1,23 @@
+// General Definations
+$developmentMode: 'TEST';
+//$developmentMode: 'PRODUCT';
+$baseHref: 'http://95.70.191.59/';
+//$baseHref: '//192.168.1.53:8080';
+//$baseHref: '//95.70.191.59';
+//$baseHref: '';
+
+// Typography
+$fontDefault: "Segoe UI";
+$fontSizeDefault: 16px;
+
+// Colors
+$colorSite : #431e60;
+$colorLight: #FFF;
+$colorRed: color(Red);
+$colorDark: color(Black, Text);
+$colorDarkS: color(Black, Secondary Text);
+$colorDarkHint: color(Black, Hint Text);
+$colorDarkDivider: color(Black, Dividers);
+
+$colorLightDivider: #EFEFEF;
+$colorLightHint: #DFDFDF;
